@@ -1,0 +1,424 @@
+﻿
+@page "/products"
+@rendermode InteractiveServer
+
+
+@using Model
+@using BusinessLogicLayer
+@using Microsoft.JSInterop
+
+@inject IProductService ProductService
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Product Management</PageTitle>
+
+<div class="container-fluid py-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold">Product Management</h2>
+            <p class="text-muted">Manage your product catalog.</p>
+        </div>
+        <span class="badge bg-primary fs-6">
+            Total: @products.Count
+        </span>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(errorMessage))
+    {
+        <div class="alert alert-danger">
+            @errorMessage
+
+            <button class="btn-close float-end"
+                    @onclick='() => successMessage = ""'></button>
+
+        </div>
+    }
+
+    @if (!string.IsNullOrWhiteSpace(successMessage))
+    {
+        <div class="alert alert-success">
+            @successMessage
+
+            <button class="btn-close float-end"
+                    @onclick='() => successMessage = ""'></button>
+
+        </div>
+    }
+
+    <div class="row g-4">
+
+        <!-- ADD / EDIT FORM -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        @(isEditMode ? "Edit Product" : "Add New Product")
+                    </h5>
+                </div>
+
+                <div class="card-body">
+
+                    <label class="form-label">Product Name</label>
+                    <input class="form-control mb-3"
+                           placeholder="Enter product name"
+                           @bind="currentProduct.Name" />
+
+                    <label class="form-label">Price (Rs.)</label>
+                    <input class="form-control mb-3"
+                           type="number"
+                           min="0.01"
+                           step="0.01"
+                           @bind="currentProduct.Price" />
+
+                    <label class="form-label">Category</label>
+                    <input class="form-control mb-3"
+                           placeholder="Enter category"
+                           @bind="currentProduct.Category" />
+
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control mb-3"
+                              rows="3"
+                              maxlength="500"
+                              @bind="currentProduct.Description">
+                    </textarea>
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input"
+                               type="checkbox"
+                               id="activeSwitch"
+                               @bind="currentProduct.IsActive" />
+                        <label class="form-check-label"
+                               for="activeSwitch">
+                            Active Product
+                        </label>
+                    </div>
+
+                    @if (isEditMode)
+                    {
+                        <button class="btn btn-warning w-100 mb-2"
+                                @onclick="UpdateProduct">
+                            Update Product
+                        </button>
+
+                        <button class="btn btn-outline-secondary w-100"
+                                @onclick="CancelEdit">
+                            Cancel Edit
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-success w-100"
+                                @onclick="AddProduct">
+                            + Save Product
+                        </button>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+        <!-- SEARCH AND PRODUCT TABLE -->
+        <div class="col-lg-8">
+
+            <div class="card shadow-sm border-0 mb-3">
+                <div class="card-body">
+                    <label class="form-label fw-semibold">
+                        Search Products
+                    </label>
+
+                    <div class="input-group">
+                        <input class="form-control"
+                               placeholder="Search name, category or description..."
+                               @bind="searchKeyword"
+                               @bind:event="oninput"
+                               @onkeydown="HandleSearchKey" />
+
+                        <button class="btn btn-primary"
+                                @onclick="SearchProducts">
+                            Search
+                        </button>
+
+                        <button class="btn btn-outline-secondary"
+                                @onclick="ResetSearch">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0">Product Catalog</h5>
+                </div>
+
+                <div class="card-body p-0">
+
+                    @if (products.Count == 0)
+                    {
+                        <div class="text-center p-5">
+                            <h5>No products found</h5>
+                            <p class="text-muted">
+                                Try another search or add a new product.
+                            </p>
+                            <button class="btn btn-outline-primary"
+                                    @onclick="ResetSearch">
+                                Show All Products
+                            </button>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Category</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var product in products)
+                                    {
+                                        <tr @key="product.Id">
+                                            <td class="fw-semibold">
+                                                @product.Name
+                                            </td>
+
+                                            <td class="text-nowrap">
+                                                Rs. @product.Price.ToString("N2")
+                                            </td>
+
+                                            <td>
+                                                <span class="badge bg-light text-dark border">
+                                                    @product.Category
+                                                </span>
+                                            </td>
+
+                                            <td style="min-width:150px; max-width:220px;">
+                                                @product.Description
+                                            </td>
+
+                                            <td>
+                                                @if (product.IsActive)
+                                                {
+                                                    <span class="badge bg-success">
+                                                        Active
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-danger">
+                                                        Inactive
+                                                    </span>
+                                                }
+                                            </td>
+
+                                            <td class="text-nowrap">
+                                                <button class="btn btn-sm btn-warning me-1"
+                                                        @onclick="() => EditProduct(product.Id)">
+                                                    Edit
+                                                </button>
+
+                                                <button class="btn btn-sm btn-danger"
+                                                        @onclick="() => DeleteProduct(product.Id)">
+                                                    Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    }
+                </div>
+
+                <div class="card-footer bg-white text-muted small">
+                    Showing @products.Count product(s)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<ProductModel> products = new();
+    private ProductModel currentProduct = new();
+
+    private string searchKeyword = "";
+    private string errorMessage = "";
+    private string successMessage = "";
+
+    private bool isEditMode = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProducts();
+    }
+
+    private async Task LoadProducts()
+    {
+        try
+        {
+            products = await ProductService.GetAllAsync();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Could not load products: " + ex.Message;
+        }
+    }
+
+    private async Task AddProduct()
+    {
+        errorMessage = "";
+        successMessage = "";
+
+        try
+        {
+            await ProductService.CreateAsync(currentProduct);
+
+            successMessage = "Product added successfully!";
+            currentProduct = new ProductModel();
+
+            await RefreshProducts();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+    private async Task EditProduct(Guid id)
+    {
+        errorMessage = "";
+        successMessage = "";
+
+        try
+        {
+            var product = await ProductService.GetByIdAsync(id);
+
+            if (product == null)
+            {
+                errorMessage = "Product not found.";
+                return;
+            }
+
+            currentProduct = new ProductModel
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Price = product.Price,
+                Category = product.Category,
+                Description = product.Description,
+                IsActive = product.IsActive
+            };
+
+            isEditMode = true;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+    private async Task UpdateProduct()
+    {
+        errorMessage = "";
+        successMessage = "";
+
+        try
+        {
+            await ProductService.UpdateAsync(currentProduct);
+
+            successMessage = "Product updated successfully!";
+
+            CancelEdit();
+            await RefreshProducts();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+    private async Task DeleteProduct(Guid id)
+    {
+        bool confirmed = await JSRuntime.InvokeAsync<bool>(
+            "confirm",
+            "Are you sure you want to delete this product?"
+        );
+
+        if (!confirmed)
+            return;
+
+        errorMessage = "";
+        successMessage = "";
+
+        try
+        {
+            await ProductService.DeleteAsync(id);
+
+            successMessage = "Product deleted successfully!";
+            await RefreshProducts();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+
+    private async Task SearchProducts()
+    {
+        errorMessage = "";
+        successMessage = "";
+
+        try
+        {
+            products = await ProductService.SearchAsync(searchKeyword);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Search failed: " + ex.Message;
+        }
+    }
+
+    private async Task ResetSearch()
+    {
+        searchKeyword = "";
+        await LoadProducts();
+    }
+
+    private async Task HandleSearchKey(
+        Microsoft.AspNetCore.Components.Web.KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await SearchProducts();
+        }
+    }
+
+    private async Task RefreshProducts()
+    {
+        if (string.IsNullOrWhiteSpace(searchKeyword))
+        {
+            await LoadProducts();
+        }
+        else
+        {
+            await SearchProducts();
+        }
+    }
+
+    private void CancelEdit()
+    {
+        currentProduct = new ProductModel();
+        isEditMode = false;
+    }
+}
