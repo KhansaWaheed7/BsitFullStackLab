@@ -5,7 +5,45 @@ namespace BusinessLogicLayer
 {
     public class ProductService : IProductService
     {
+
+        public List<ProductModel> GetAllData()
+        {
+            return CRUD.GetAllData();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private readonly IProductRepository productRepository;
+       
 
         public ProductService(IProductRepository productRepository)
         {

@@ -15,5 +15,6 @@ namespace BusinessLogicLayer
         Task DeleteAsync(Guid id);
 
         Task<List<ProductModel>> SearchAsync(string keyword);
+        List<ProductModel> GetAllData();
     }
 }
