@@ -23,7 +23,7 @@ namespace DataAccessLayer
                     {
                         ProductModel model = new ProductModel();
 
-                        model.Id = reader.GetGuid(reader.GetOrdinal("Id"));
+                        model.Id = reader.GetInt64(reader.GetOrdinal("Id"));
                         model.Name = reader["Name"].ToString()!;
                         model.Price = Convert.ToDecimal(reader["Price"]);
 

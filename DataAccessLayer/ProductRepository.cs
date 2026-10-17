@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿
+using System.Text.Json;
 using Model;
 
 namespace DataAccessLayer
@@ -6,7 +7,6 @@ namespace DataAccessLayer
     public class ProductRepository : IProductRepository
     {
         private readonly string filePath;
-
 
         public ProductRepository()
         {
@@ -16,7 +16,6 @@ namespace DataAccessLayer
                 "products.json"
             );
         }
-
 
         public async Task<List<ProductModel>> GetAllAsync()
         {
@@ -32,7 +31,6 @@ namespace DataAccessLayer
                 return new List<ProductModel>();
             }
 
-
             return JsonSerializer.Deserialize<List<ProductModel>>(
                 json,
                 new JsonSerializerOptions
@@ -40,10 +38,9 @@ namespace DataAccessLayer
                     PropertyNameCaseInsensitive = true
                 })
                 ?? new List<ProductModel>();
-
         }
 
-        public async Task<ProductModel?> GetByIdAsync(Guid id)
+        public async Task<ProductModel?> GetByIdAsync(long id)
         {
             List<ProductModel> products = await GetAllAsync();
 
@@ -54,9 +51,11 @@ namespace DataAccessLayer
         {
             List<ProductModel> products = await GetAllAsync();
 
-            if (product.Id == Guid.Empty)
+            if (product.Id == 0)
             {
-                product.Id = Guid.NewGuid();
+                product.Id = products.Count == 0
+                    ? 1
+                    : products.Max(p => p.Id) + 1;
             }
 
             products.Add(product);
@@ -85,7 +84,7 @@ namespace DataAccessLayer
             await SaveProductsAsync(products);
         }
 
-        public async Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(long id)
         {
             List<ProductModel> products = await GetAllAsync();
 

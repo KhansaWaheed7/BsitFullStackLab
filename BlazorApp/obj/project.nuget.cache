@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "rgmbv9Sjk+E=",
+  "dgSpecHash": "JGpcOkCWts4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BlazorApp\\BlazorApp.csproj",
+  "projectFilePath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BlazorApp\\BlazorApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\230982.AUSTD\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.12\\microsoft.aspnetcore.app.internal.assets.10.0.12.nupkg.sha512",
-    "C:\\Users\\230982.AUSTD\\.nuget\\packages\\npgsql\\10.0.3\\npgsql.10.0.3.nupkg.sha512"
+    "C:\\Users\\hamza\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.12\\microsoft.aspnetcore.app.internal.assets.10.0.12.nupkg.sha512",
+    "C:\\Users\\hamza\\.nuget\\packages\\npgsql\\10.0.3\\npgsql.10.0.3.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,4 +1,5 @@
-﻿using Model;
+﻿
+using Model;
 
 namespace BusinessLogicLayer
 {
@@ -6,15 +7,16 @@ namespace BusinessLogicLayer
     {
         Task<List<ProductModel>> GetAllAsync();
 
-        Task<ProductModel?> GetByIdAsync(Guid id);
+        Task<ProductModel?> GetByIdAsync(long id);
 
         Task CreateAsync(ProductModel product);
 
         Task UpdateAsync(ProductModel product);
 
-        Task DeleteAsync(Guid id);
+        Task DeleteAsync(long id);
 
         Task<List<ProductModel>> SearchAsync(string keyword);
+
         List<ProductModel> GetAllData();
     }
 }

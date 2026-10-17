@@ -2,7 +2,6 @@
 @page "/products"
 @rendermode InteractiveServer
 
-
 @using Model
 @using BusinessLogicLayer
 @using Microsoft.JSInterop
@@ -19,6 +18,7 @@
             <h2 class="fw-bold">Product Management</h2>
             <p class="text-muted">Manage your product catalog.</p>
         </div>
+
         <span class="badge bg-primary fs-6">
             Total: @products.Count
         </span>
@@ -30,8 +30,8 @@
             @errorMessage
 
             <button class="btn-close float-end"
-                    @onclick='() => successMessage = ""'></button>
-
+                    @onclick="() => errorMessage = string.Empty">
+            </button>
         </div>
     }
 
@@ -41,8 +41,8 @@
             @successMessage
 
             <button class="btn-close float-end"
-                    @onclick='() => successMessage = ""'></button>
-
+                    @onclick="() => successMessage = string.Empty">
+            </button>
         </div>
     }
 
@@ -51,6 +51,7 @@
         <!-- ADD / EDIT FORM -->
         <div class="col-lg-4">
             <div class="card shadow-sm border-0">
+
                 <div class="card-header bg-primary text-white">
                     <h5 class="mb-0">
                         @(isEditMode ? "Edit Product" : "Add New Product")
@@ -88,6 +89,7 @@
                                type="checkbox"
                                id="activeSwitch"
                                @bind="currentProduct.IsActive" />
+
                         <label class="form-check-label"
                                for="activeSwitch">
                             Active Product
@@ -123,6 +125,7 @@
 
             <div class="card shadow-sm border-0 mb-3">
                 <div class="card-body">
+
                     <label class="form-label fw-semibold">
                         Search Products
                     </label>
@@ -144,10 +147,12 @@
                             Reset
                         </button>
                     </div>
+
                 </div>
             </div>
 
             <div class="card shadow-sm border-0">
+
                 <div class="card-header bg-white py-3">
                     <h5 class="mb-0">Product Catalog</h5>
                 </div>
@@ -158,9 +163,11 @@
                     {
                         <div class="text-center p-5">
                             <h5>No products found</h5>
+
                             <p class="text-muted">
                                 Try another search or add a new product.
                             </p>
+
                             <button class="btn btn-outline-primary"
                                     @onclick="ResetSearch">
                                 Show All Products
@@ -170,6 +177,7 @@
                     else
                     {
                         <div class="table-responsive">
+
                             <table class="table table-hover align-middle mb-0">
 
                                 <thead class="table-light">
@@ -187,6 +195,7 @@
                                     @foreach (var product in products)
                                     {
                                         <tr @key="product.Id">
+
                                             <td class="fw-semibold">
                                                 @product.Name
                                             </td>
@@ -221,6 +230,7 @@
                                             </td>
 
                                             <td class="text-nowrap">
+
                                                 <button class="btn btn-sm btn-warning me-1"
                                                         @onclick="() => EditProduct(product.Id)">
                                                     Edit
@@ -230,6 +240,7 @@
                                                         @onclick="() => DeleteProduct(product.Id)">
                                                     Delete
                                                 </button>
+
                                             </td>
                                         </tr>
                                     }
@@ -238,13 +249,16 @@
                             </table>
                         </div>
                     }
+
                 </div>
 
                 <div class="card-footer bg-white text-muted small">
                     Showing @products.Count product(s)
                 </div>
+
             </div>
         </div>
+
     </div>
 </div>
 
@@ -252,9 +266,9 @@
     private List<ProductModel> products = new();
     private ProductModel currentProduct = new();
 
-    private string searchKeyword = "";
-    private string errorMessage = "";
-    private string successMessage = "";
+    private string searchKeyword = string.Empty;
+    private string errorMessage = string.Empty;
+    private string successMessage = string.Empty;
 
     private bool isEditMode = false;
 
@@ -277,8 +291,8 @@
 
     private async Task AddProduct()
     {
-        errorMessage = "";
-        successMessage = "";
+        errorMessage = string.Empty;
+        successMessage = string.Empty;
 
         try
         {
@@ -295,14 +309,15 @@
         }
     }
 
-    private async Task EditProduct(Guid id)
+    // ID type changed from Guid to long
+    private async Task EditProduct(long id)
     {
-        errorMessage = "";
-        successMessage = "";
+        errorMessage = string.Empty;
+        successMessage = string.Empty;
 
         try
         {
-            var product = await ProductService.GetByIdAsync(id);
+            ProductModel? product = await ProductService.GetByIdAsync(id);
 
             if (product == null)
             {
@@ -330,8 +345,8 @@
 
     private async Task UpdateProduct()
     {
-        errorMessage = "";
-        successMessage = "";
+        errorMessage = string.Empty;
+        successMessage = string.Empty;
 
         try
         {
@@ -348,7 +363,8 @@
         }
     }
 
-    private async Task DeleteProduct(Guid id)
+    // ID type changed from Guid to long
+    private async Task DeleteProduct(long id)
     {
         bool confirmed = await JSRuntime.InvokeAsync<bool>(
             "confirm",
@@ -356,16 +372,19 @@
         );
 
         if (!confirmed)
+        {
             return;
+        }
 
-        errorMessage = "";
-        successMessage = "";
+        errorMessage = string.Empty;
+        successMessage = string.Empty;
 
         try
         {
             await ProductService.DeleteAsync(id);
 
             successMessage = "Product deleted successfully!";
+
             await RefreshProducts();
         }
         catch (Exception ex)
@@ -376,8 +395,8 @@
 
     private async Task SearchProducts()
     {
-        errorMessage = "";
-        successMessage = "";
+        errorMessage = string.Empty;
+        successMessage = string.Empty;
 
         try
         {
@@ -391,7 +410,7 @@
 
     private async Task ResetSearch()
     {
-        searchKeyword = "";
+        searchKeyword = string.Empty;
         await LoadProducts();
     }
 

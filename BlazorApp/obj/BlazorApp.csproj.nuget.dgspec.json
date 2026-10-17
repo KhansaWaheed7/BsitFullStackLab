@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BlazorApp\\BlazorApp.csproj": {}
+    "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BlazorApp\\BlazorApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BlazorApp\\BlazorApp.csproj": {
+    "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BlazorApp\\BlazorApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BlazorApp\\BlazorApp.csproj",
+        "projectUniqueName": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BlazorApp\\BlazorApp.csproj",
         "projectName": "BlazorApp",
-        "projectPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BlazorApp\\BlazorApp.csproj",
-        "packagesPath": "C:\\Users\\230982.AUSTD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BlazorApp\\obj\\",
+        "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BlazorApp\\BlazorApp.csproj",
+        "packagesPath": "C:\\Users\\hamza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BlazorApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\230982.AUSTD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hamza\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +33,11 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-                "projectPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+              "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+                "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
               },
-              "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\Model\\Model.csproj"
+              "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj"
               }
             }
           }
@@ -504,20 +503,20 @@
         }
       }
     },
-    "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+    "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "projectUniqueName": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
         "projectName": "BusinessLogicLayer",
-        "projectPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
-        "packagesPath": "C:\\Users\\230982.AUSTD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\BusinessLogicLayer\\obj\\",
+        "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "packagesPath": "C:\\Users\\hamza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\230982.AUSTD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hamza\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -526,7 +525,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -534,11 +532,11 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\DataAccessLayer\\DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\DataAccessLayer\\DataAccessLayer.csproj"
+              "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\DataAccessLayer.csproj"
               },
-              "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\Model\\Model.csproj"
+              "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj"
               }
             }
           }
@@ -853,20 +851,20 @@
         }
       }
     },
-    "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\DataAccessLayer\\DataAccessLayer.csproj": {
+    "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\DataAccessLayer.csproj",
         "projectName": "DataAccessLayer",
-        "projectPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\DataAccessLayer\\DataAccessLayer.csproj",
-        "packagesPath": "C:\\Users\\230982.AUSTD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\DataAccessLayer\\obj\\",
+        "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\hamza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\230982.AUSTD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hamza\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -875,7 +873,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -883,8 +880,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\Model\\Model.csproj"
+              "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj"
               }
             }
           }
@@ -1205,20 +1202,20 @@
         }
       }
     },
-    "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\Model\\Model.csproj": {
+    "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\230982.AUSTD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\230982.AUSTD\\Desktop\\FullStackLab\\Model\\obj\\",
+        "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\hamza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\230982.AUSTD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hamza\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -1227,7 +1224,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

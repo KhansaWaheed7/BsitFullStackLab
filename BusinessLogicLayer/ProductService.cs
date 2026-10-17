@@ -1,53 +1,21 @@
-﻿using DataAccessLayer;
+﻿
+using DataAccessLayer;
 using Model;
 
 namespace BusinessLogicLayer
 {
     public class ProductService : IProductService
     {
-
-        public List<ProductModel> GetAllData()
-        {
-            return CRUD.GetAllData();
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         private readonly IProductRepository productRepository;
-       
 
         public ProductService(IProductRepository productRepository)
         {
             this.productRepository = productRepository;
+        }
+
+        public List<ProductModel> GetAllData()
+        {
+            return CRUD.GetAllData();
         }
 
         public async Task<List<ProductModel>> GetAllAsync()
@@ -55,7 +23,7 @@ namespace BusinessLogicLayer
             return await productRepository.GetAllAsync();
         }
 
-        public async Task<ProductModel?> GetByIdAsync(Guid id)
+        public async Task<ProductModel?> GetByIdAsync(long id)
         {
             return await productRepository.GetByIdAsync(id);
         }
@@ -100,7 +68,7 @@ namespace BusinessLogicLayer
             await productRepository.UpdateAsync(product);
         }
 
-        public async Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(long id)
         {
             await productRepository.DeleteAsync(id);
         }
