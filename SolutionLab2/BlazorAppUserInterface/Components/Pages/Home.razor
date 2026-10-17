@@ -1,0 +1,151 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+@inject IProductService ProductService
+<h3>Product Management</h3>
+<button class="btn btn-primary mb-3"
+@onclick="ShowCreateForm">
+Add Product
+</button>
+@if (showForm)
+{
+<div class="card mb-4">
+<div class="card-body">
+<h5>
+@(isEditMode ? "Edit Product" : "Create Product")
+</h5>
+<div class="mb-3">
+<label class="form-label">Name</label>
+<input class="form-control"
+@bind="product.Name" />
+</div>
+<div class="mb-3">
+<label class="form-label">Price</label>
+<input class="form-control"
+type="number"
+@bind="product.Price" />
+</div>
+<div class="mb-3">
+<label class="form-label">Category</label>
+<input class="form-control"
+@bind="product.Category" />
+</div>
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+<div class="alert alert-danger">
+@errorMessage
+</div>
+}
+<button class="btn btn-success me-2"
+@onclick="SaveProduct">
+Save
+</button>
+<button class="btn btn-secondary"
+@onclick="Cancel">
+Cancel
+</button>
+</div>
+</div>
+}
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Price</th>
+<th>Category</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+@foreach (var item in products)
+{
+<tr>
+<td>@item.Name</td>
+<td>@item.Price</td>
+<td>@item.Category</td>
+<td>
+<button class="btn btn-warning btn-sm me-2"
+@onclick="() => EditProduct(item.Id)">
+Edit
+</button>
+<button class="btn btn-danger btn-sm"
+@onclick="() => DeleteProduct(item.Id)">
+Delete
+</button>
+</td>
+</tr>
+}
+</tbody>
+</table>
+@code
+{
+private List<ProductModel> products = new();
+private ProductModel product = new();
+private bool showForm;
+private bool isEditMode;
+private string errorMessage = string.Empty;
+protected override void OnInitialized()
+{
+LoadProducts();
+    }
+    private void LoadProducts()
+    {
+        products = ProductService.GetAll();
+    }
+    private void ShowCreateForm()
+    {
+        product = new ProductModel();
+        isEditMode = false;
+        errorMessage = string.Empty;
+        showForm = true;
+    }
+    private void SaveProduct()
+    {
+        try
+        {
+            errorMessage = string.Empty;
+            if (isEditMode)
+            {
+                ProductService.Update(product);
+            }
+            else
+            {
+                ProductService.Create(product);
+            }
+            LoadProducts();
+            product = new ProductModel();
+            showForm = false;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+    private void EditProduct(Guid id)
+    {
+        var existingProduct = ProductService.GetById(id);
+        if (existingProduct == null)
+            return;
+        product = new ProductModel
+        {
+            Id = existingProduct.Id,
+            Name = existingProduct.Name,
+            Price = existingProduct.Price,
+            Category = existingProduct.Category
+        };
+        isEditMode = true;
+        errorMessage = string.Empty;
+        showForm = true;
+    }
+    private void DeleteProduct(Guid id)
+    {
+        ProductService.Delete(id);
+        LoadProducts();
+    }
+    private void Cancel()
+    {
+        product = new ProductModel();
+        errorMessage = string.Empty;
+        showForm = false;
+    }
+}
