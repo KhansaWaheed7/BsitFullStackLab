@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BlazorApp\\BlazorApp.csproj": {}
+    "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\BlazorApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BlazorApp\\BlazorApp.csproj": {
+    "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\BlazorApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BlazorApp\\BlazorApp.csproj",
+        "projectUniqueName": "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\BlazorApp.csproj",
         "projectName": "BlazorApp",
-        "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BlazorApp\\BlazorApp.csproj",
-        "packagesPath": "C:\\Users\\hamza\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BlazorApp\\obj\\",
+        "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\BlazorApp.csproj",
+        "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hamza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\230982\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -33,11 +34,11 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-                "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+              "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+                "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
               },
-              "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj"
+              "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj"
               }
             }
           }
@@ -62,7 +63,7 @@
             "Microsoft.AspNetCore.App.Internal.Assets": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.12, )",
+              "version": "[10.0.9, )",
               "autoReferenced": true
             }
           },
@@ -85,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400-preview.0.26322.102/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -503,20 +504,20 @@
         }
       }
     },
-    "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+    "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "projectUniqueName": "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
         "projectName": "BusinessLogicLayer",
-        "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
-        "packagesPath": "C:\\Users\\hamza\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\BusinessLogicLayer\\obj\\",
+        "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hamza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\230982\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -525,6 +526,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -532,11 +534,11 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\DataAccessLayer.csproj"
+              "C:\\Users\\230982\\Desktop\\FLab\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\DataAccessLayer\\DataAccessLayer.csproj"
               },
-              "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj"
+              "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj"
               }
             }
           }
@@ -573,7 +575,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400-preview.0.26322.102/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -851,20 +853,20 @@
         }
       }
     },
-    "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\DataAccessLayer.csproj": {
+    "C:\\Users\\230982\\Desktop\\FLab\\DataAccessLayer\\DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\230982\\Desktop\\FLab\\DataAccessLayer\\DataAccessLayer.csproj",
         "projectName": "DataAccessLayer",
-        "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\DataAccessLayer.csproj",
-        "packagesPath": "C:\\Users\\hamza\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\DataAccessLayer\\obj\\",
+        "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\DataAccessLayer\\DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\230982\\Desktop\\FLab\\DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hamza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\230982\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -873,6 +875,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -880,8 +883,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj"
+              "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj"
               }
             }
           }
@@ -924,7 +927,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400-preview.0.26322.102/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -1202,20 +1205,20 @@
         }
       }
     },
-    "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj": {
+    "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\Model.csproj",
-        "packagesPath": "C:\\Users\\hamza\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hamza\\source\\repos\\BsitFullStackLab\\Model\\obj\\",
+        "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\230982\\Desktop\\FLab\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hamza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\230982\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -1224,6 +1227,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -1265,7 +1269,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400-preview.0.26322.102/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

@@ -16,5 +16,6 @@ namespace DataAccessLayer
         
 
         Task<List<ProductModel>> SearchAsync(string keyword);
+        List<ProductModel> GetAllData();
     }
 }
