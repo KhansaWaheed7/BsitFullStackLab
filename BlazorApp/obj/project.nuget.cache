@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "lAAqfZZSNhQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\BlazorApp.csproj",
+=======
+  "dgSpecHash": "60sdwgTEeYc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\230982\\Downloads\\FLab\\BlazorApp\\BlazorApp.csproj",
+>>>>>>> 932c4d0 (Update project and remove deleted files)
   "expectedPackageFiles": [
     "C:\\Users\\230982\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.9\\microsoft.aspnetcore.app.internal.assets.10.0.9.nupkg.sha512",
     "C:\\Users\\230982\\.nuget\\packages\\npgsql\\10.0.3\\npgsql.10.0.3.nupkg.sha512"

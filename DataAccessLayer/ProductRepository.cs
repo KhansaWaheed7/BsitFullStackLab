@@ -1,132 +1,171 @@
-﻿
-using System.Text.Json;
-using Model;
+﻿using Model;
+using Npgsql;
 
 namespace DataAccessLayer
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly string filePath;
-
-        public ProductRepository()
-        {
-            filePath = Path.Combine(
-                AppContext.BaseDirectory,
-                "Data",
-                "products.json"
-            );
-        }
+        private const string Columns =
+            "\"Id\", \"Name\", \"Price\", \"Category\", \"Description\", \"IsActive\"";
 
         public async Task<List<ProductModel>> GetAllAsync()
         {
-            if (!File.Exists(filePath))
+            string sql = $"SELECT {Columns} FROM \"Products\" ORDER BY \"Id\"";
+
+            var products = new List<ProductModel>();
+
+            await using NpgsqlConnection connection = DBHelper.GetConnection();
+            await connection.OpenAsync();
+
+            await using var cmd = new NpgsqlCommand(sql, connection);
+            await using NpgsqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
             {
-                return new List<ProductModel>();
+                products.Add(Map(reader));
             }
 
-            string json = await File.ReadAllTextAsync(filePath);
-
-            if (string.IsNullOrWhiteSpace(json))
-            {
-                return new List<ProductModel>();
-            }
-
-            return JsonSerializer.Deserialize<List<ProductModel>>(
-                json,
-                new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                })
-                ?? new List<ProductModel>();
+            return products;
         }
 
         public async Task<ProductModel?> GetByIdAsync(long id)
         {
-            List<ProductModel> products = await GetAllAsync();
+            string sql = $"SELECT {Columns} FROM \"Products\" WHERE \"Id\" = @id";
 
-            return products.FirstOrDefault(p => p.Id == id);
+            await using NpgsqlConnection connection = DBHelper.GetConnection();
+            await connection.OpenAsync();
+
+            await using var cmd = new NpgsqlCommand(sql, connection);
+            cmd.Parameters.AddWithValue("id", id);
+
+            await using NpgsqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+            if (await reader.ReadAsync())
+            {
+                return Map(reader);
+            }
+
+            return null;
         }
 
         public async Task CreateAsync(ProductModel product)
         {
-            List<ProductModel> products = await GetAllAsync();
+            // "Id" is an identity column, so the database generates it.
+            const string sql =
+                "INSERT INTO \"Products\" (\"Name\", \"Price\", \"Category\", \"Description\", \"IsActive\") " +
+                "VALUES (@name, @price, @category, @description, @isActive) " +
+                "RETURNING \"Id\"";
 
-            if (product.Id == 0)
+            await using NpgsqlConnection connection = DBHelper.GetConnection();
+            await connection.OpenAsync();
+
+            await using var cmd = new NpgsqlCommand(sql, connection);
+            AddProductParameters(cmd, product);
+
+            object? newId = await cmd.ExecuteScalarAsync();
+
+            if (newId != null && newId != DBNull.Value)
             {
-                product.Id = products.Count == 0
-                    ? 1
-                    : products.Max(p => p.Id) + 1;
+                product.Id = Convert.ToInt64(newId);
             }
-
-            products.Add(product);
-
-            await SaveProductsAsync(products);
         }
 
         public async Task UpdateAsync(ProductModel product)
         {
-            List<ProductModel> products = await GetAllAsync();
+            const string sql =
+                "UPDATE \"Products\" SET " +
+                "\"Name\" = @name, " +
+                "\"Price\" = @price, " +
+                "\"Category\" = @category, " +
+                "\"Description\" = @description, " +
+                "\"IsActive\" = @isActive " +
+                "WHERE \"Id\" = @id";
 
-            ProductModel? existingProduct =
-                products.FirstOrDefault(p => p.Id == product.Id);
+            await using NpgsqlConnection connection = DBHelper.GetConnection();
+            await connection.OpenAsync();
 
-            if (existingProduct == null)
+            await using var cmd = new NpgsqlCommand(sql, connection);
+            AddProductParameters(cmd, product);
+            cmd.Parameters.AddWithValue("id", product.Id);
+
+            int rows = await cmd.ExecuteNonQueryAsync();
+
+            if (rows == 0)
             {
-                throw new Exception("Product not found.");
+                throw new InvalidOperationException("Product not found. It may have been deleted.");
             }
-
-            existingProduct.Name = product.Name;
-            existingProduct.Price = product.Price;
-            existingProduct.Category = product.Category;
-            existingProduct.Description = product.Description;
-            existingProduct.IsActive = product.IsActive;
-
-            await SaveProductsAsync(products);
         }
 
         public async Task DeleteAsync(long id)
         {
-            List<ProductModel> products = await GetAllAsync();
+            const string sql = "DELETE FROM \"Products\" WHERE \"Id\" = @id";
 
-            ProductModel? product =
-                products.FirstOrDefault(p => p.Id == id);
+            await using NpgsqlConnection connection = DBHelper.GetConnection();
+            await connection.OpenAsync();
 
-            if (product != null)
-            {
-                products.Remove(product);
+            await using var cmd = new NpgsqlCommand(sql, connection);
+            cmd.Parameters.AddWithValue("id", id);
 
-                await SaveProductsAsync(products);
-            }
+            await cmd.ExecuteNonQueryAsync();
         }
 
         public async Task<List<ProductModel>> SearchAsync(string keyword)
         {
-            List<ProductModel> products = await GetAllAsync();
-
             if (string.IsNullOrWhiteSpace(keyword))
             {
-                return products;
+                return await GetAllAsync();
             }
 
-            keyword = keyword.ToLower();
+            // Escape LIKE wildcards so user input is treated as plain text
+            string escaped = keyword.Trim()
+                .Replace("\\", "\\\\")
+                .Replace("%", "\\%")
+                .Replace("_", "\\_");
 
-            return products.Where(p =>
-                p.Name.ToLower().Contains(keyword) ||
-                p.Category.ToLower().Contains(keyword) ||
-                p.Description.ToLower().Contains(keyword)
-            ).ToList();
+            string sql =
+                $"SELECT {Columns} FROM \"Products\" " +
+                "WHERE \"Name\" ILIKE @kw OR \"Category\" ILIKE @kw OR \"Description\" ILIKE @kw " +
+                "ORDER BY \"Id\"";
+
+            var products = new List<ProductModel>();
+
+            await using NpgsqlConnection connection = DBHelper.GetConnection();
+            await connection.OpenAsync();
+
+            await using var cmd = new NpgsqlCommand(sql, connection);
+            cmd.Parameters.AddWithValue("kw", "%" + escaped + "%");
+
+            await using NpgsqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                products.Add(Map(reader));
+            }
+
+            return products;
         }
 
-        private async Task SaveProductsAsync(List<ProductModel> products)
+        private static void AddProductParameters(NpgsqlCommand cmd, ProductModel product)
         {
-            string json = JsonSerializer.Serialize(
-                products,
-                new JsonSerializerOptions
-                {
-                    WriteIndented = true
-                });
+            cmd.Parameters.AddWithValue("name", product.Name);
+            cmd.Parameters.AddWithValue("price", product.Price);
+            cmd.Parameters.AddWithValue("category", product.Category);
+            cmd.Parameters.AddWithValue("description", product.Description);
+            cmd.Parameters.AddWithValue("isActive", product.IsActive);
+        }
 
-            await File.WriteAllTextAsync(filePath, json);
+        // Column order must match the "Columns" constant above.
+        private static ProductModel Map(NpgsqlDataReader reader)
+        {
+            return new ProductModel
+            {
+                Id = reader.GetInt64(0),
+                Name = reader.IsDBNull(1) ? "" : reader.GetString(1),
+                Price = reader.IsDBNull(2) ? 0L : reader.GetInt64(2),
+                Category = reader.IsDBNull(3) ? "" : reader.GetString(3),
+                Description = reader.IsDBNull(4) ? "" : reader.GetString(4),
+                IsActive = !reader.IsDBNull(5) && reader.GetBoolean(5)
+            };
         }
     }
 }

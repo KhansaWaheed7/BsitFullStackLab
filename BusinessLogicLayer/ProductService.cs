@@ -1,5 +1,4 @@
-﻿
-using DataAccessLayer;
+﻿using DataAccessLayer;
 using Model;
 
 namespace BusinessLogicLayer
@@ -11,11 +10,6 @@ namespace BusinessLogicLayer
         public ProductService(IProductRepository productRepository)
         {
             this.productRepository = productRepository;
-        }
-
-        public List<ProductModel> GetAllData()
-        {
-            return CRUD.GetAllData();
         }
 
         public async Task<List<ProductModel>> GetAllAsync()
@@ -30,41 +24,18 @@ namespace BusinessLogicLayer
 
         public async Task CreateAsync(ProductModel product)
         {
-            if (string.IsNullOrWhiteSpace(product.Name))
-            {
-                throw new Exception("Product name is required.");
-            }
-
-            if (product.Price < 0)
-            {
-                throw new Exception("Price cannot be negative.");
-            }
-
-            if (string.IsNullOrWhiteSpace(product.Category))
-            {
-                throw new Exception("Category is required.");
-            }
-
+            Validate(product);
             await productRepository.CreateAsync(product);
         }
 
         public async Task UpdateAsync(ProductModel product)
         {
-            if (string.IsNullOrWhiteSpace(product.Name))
+            if (product.Id <= 0)
             {
-                throw new Exception("Product name is required.");
+                throw new ArgumentException("Invalid product.");
             }
 
-            if (product.Price < 0)
-            {
-                throw new Exception("Price cannot be negative.");
-            }
-
-            if (string.IsNullOrWhiteSpace(product.Category))
-            {
-                throw new Exception("Category is required.");
-            }
-
+            Validate(product);
             await productRepository.UpdateAsync(product);
         }
 
@@ -75,7 +46,31 @@ namespace BusinessLogicLayer
 
         public async Task<List<ProductModel>> SearchAsync(string keyword)
         {
-            return await productRepository.SearchAsync(keyword);
+            return await productRepository.SearchAsync(keyword ?? "");
+        }
+
+        // Validation problems throw ArgumentException so the UI can show
+        // them as friendly messages (database errors are different exceptions).
+        private static void Validate(ProductModel product)
+        {
+            product.Name = (product.Name ?? "").Trim();
+            product.Category = (product.Category ?? "").Trim();
+            product.Description = (product.Description ?? "").Trim();
+
+            if (product.Name.Length == 0)
+            {
+                throw new ArgumentException("Product name is required.");
+            }
+
+            if (product.Price < 0)
+            {
+                throw new ArgumentException("Price cannot be negative.");
+            }
+
+            if (product.Category.Length == 0)
+            {
+                throw new ArgumentException("Category is required.");
+            }
         }
     }
 }

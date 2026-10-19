@@ -1,5 +1,4 @@
-﻿
-using Model;
+﻿using Model;
 
 namespace BusinessLogicLayer
 {
@@ -16,7 +15,5 @@ namespace BusinessLogicLayer
         Task DeleteAsync(long id);
 
         Task<List<ProductModel>> SearchAsync(string keyword);
-
-        List<ProductModel> GetAllData();
     }
 }

@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\BlazorApp.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\BlazorApp.csproj",
         "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\obj\\",
+=======
+    "C:\\Users\\230982\\Downloads\\FLab\\BlazorApp\\BlazorApp.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\230982\\Downloads\\FLab\\BlazorApp\\BlazorApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\230982\\Downloads\\FLab\\BlazorApp\\BlazorApp.csproj",
+        "projectName": "BlazorApp",
+        "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\BlazorApp\\BlazorApp.csproj",
+        "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\230982\\Downloads\\FLab\\BlazorApp\\obj\\",
+>>>>>>> 932c4d0 (Update project and remove deleted files)
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -34,11 +48,19 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
                 "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
               },
               "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj": {
                 "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj"
+=======
+              "C:\\Users\\230982\\Downloads\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+                "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+              },
+              "C:\\Users\\230982\\Downloads\\FLab\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\Model\\Model.csproj"
+>>>>>>> 932c4d0 (Update project and remove deleted files)
               }
             }
           }
@@ -504,6 +526,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -512,6 +535,16 @@
         "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
         "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\obj\\",
+=======
+    "C:\\Users\\230982\\Downloads\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\230982\\Downloads\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "projectName": "BusinessLogicLayer",
+        "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\230982\\Downloads\\FLab\\BusinessLogicLayer\\obj\\",
+>>>>>>> 932c4d0 (Update project and remove deleted files)
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -534,11 +567,19 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\230982\\Desktop\\FLab\\DataAccessLayer\\DataAccessLayer.csproj": {
                 "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\DataAccessLayer\\DataAccessLayer.csproj"
               },
               "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj": {
                 "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj"
+=======
+              "C:\\Users\\230982\\Downloads\\FLab\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\DataAccessLayer\\DataAccessLayer.csproj"
+              },
+              "C:\\Users\\230982\\Downloads\\FLab\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\Model\\Model.csproj"
+>>>>>>> 932c4d0 (Update project and remove deleted files)
               }
             }
           }
@@ -853,6 +894,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Users\\230982\\Desktop\\FLab\\DataAccessLayer\\DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -861,6 +903,16 @@
         "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\DataAccessLayer\\DataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\230982\\Desktop\\FLab\\DataAccessLayer\\obj\\",
+=======
+    "C:\\Users\\230982\\Downloads\\FLab\\DataAccessLayer\\DataAccessLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\230982\\Downloads\\FLab\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectName": "DataAccessLayer",
+        "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\DataAccessLayer\\DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\230982\\Downloads\\FLab\\DataAccessLayer\\obj\\",
+>>>>>>> 932c4d0 (Update project and remove deleted files)
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -883,8 +935,13 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj": {
                 "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj"
+=======
+              "C:\\Users\\230982\\Downloads\\FLab\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\Model\\Model.csproj"
+>>>>>>> 932c4d0 (Update project and remove deleted files)
               }
             }
           }
@@ -1205,6 +1262,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -1213,6 +1271,16 @@
         "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj",
         "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\230982\\Desktop\\FLab\\Model\\obj\\",
+=======
+    "C:\\Users\\230982\\Downloads\\FLab\\Model\\Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\230982\\Downloads\\FLab\\Model\\Model.csproj",
+        "projectName": "Model",
+        "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\230982\\Downloads\\FLab\\Model\\obj\\",
+>>>>>>> 932c4d0 (Update project and remove deleted files)
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\hamza\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.12\_framework\blazor.server.js
 C:\Users\hamza\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.12\_framework\blazor.web.js
 C:\Users\hamza\source\repos\BsitFullStackLab\BlazorApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
@@ -46,3 +47,5 @@ C:\Users\hamza\source\repos\BsitFullStackLab\BlazorApp\wwwroot\lib\bootstrap\dis
 C:\Users\hamza\source\repos\BsitFullStackLab\BlazorApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
 C:\Users\hamza\source\repos\BsitFullStackLab\BlazorApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
 C:\Users\hamza\source\repos\BsitFullStackLab\BlazorApp\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+=======
+>>>>>>> 932c4d0 (Update project and remove deleted files)
