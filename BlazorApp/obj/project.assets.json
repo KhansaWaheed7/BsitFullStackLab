@@ -138,19 +138,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\BlazorApp.csproj",
-      "projectName": "BlazorApp",
-      "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\BlazorApp.csproj",
-      "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\230982\\Desktop\\FLab\\BlazorApp\\obj\\",
-=======
       "projectUniqueName": "C:\\Users\\230982\\Downloads\\FLab\\BlazorApp\\BlazorApp.csproj",
       "projectName": "BlazorApp",
       "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\BlazorApp\\BlazorApp.csproj",
       "packagesPath": "C:\\Users\\230982\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\230982\\Downloads\\FLab\\BlazorApp\\obj\\",
->>>>>>> 932c4d0 (Update project and remove deleted files)
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -173,19 +165,11 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-<<<<<<< HEAD
-            "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-              "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
-            },
-            "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\230982\\Desktop\\FLab\\Model\\Model.csproj"
-=======
             "C:\\Users\\230982\\Downloads\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
               "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
             },
             "C:\\Users\\230982\\Downloads\\FLab\\Model\\Model.csproj": {
               "projectPath": "C:\\Users\\230982\\Downloads\\FLab\\Model\\Model.csproj"
->>>>>>> 932c4d0 (Update project and remove deleted files)
             }
           }
         }
