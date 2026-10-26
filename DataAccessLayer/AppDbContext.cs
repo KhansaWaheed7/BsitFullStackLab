@@ -17,8 +17,7 @@ namespace DataAccessLayer
             modelBuilder.Entity<ProductModel>(entity =>
             {
                 // Map to the existing Supabase table and column names.
-                // The capital letters are intentional because PostgreSQL
-                // treats quoted table/column names as case-sensitive.
+   
                 entity.ToTable("Products", "public");
 
                 entity.HasKey(p => p.Id);

@@ -1,17 +1,20 @@
-﻿using Npgsql;
+﻿
+using Npgsql;
 
 namespace DataAccessLayer
 {
     public class DBHelper
     {
-        public static NpgsqlConnection GetConnection()
+        private readonly string _connectionString;
+
+        public DBHelper(string connectionString)
         {
-            return new NpgsqlConnection(
-                "Host=aws-0-ap-southeast-2.pooler.supabase.com;" +
-                "Port=6543;Database=postgres;" +
-                "Username=postgres.hdnjbnyzazjrsqbjsqpl;Password=$77hotMango;" +
-                "SSL Mode=Require;Trust Server Certificate=true;" +
-                "No Reset On Close=true;Timeout=30;Command Timeout=30");
+            _connectionString = connectionString;
+        }
+
+        public NpgsqlConnection GetConnection()
+        {
+            return new NpgsqlConnection(_connectionString);
         }
     }
 }

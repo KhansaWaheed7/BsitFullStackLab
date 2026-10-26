@@ -14,12 +14,12 @@
             <p class="text-muted mb-0">Create, view, update and delete products.</p>
         </div>
 
-        <span class="badge bg-primary fs-6">Total: @products.Count</span>
+        <span class="badge bg-warning text-dark fs-6">Total: @products.Count</span>
     </div>
 
     @if (!string.IsNullOrWhiteSpace(errorMessage))
     {
-        <div class="alert alert-danger">
+        <div class="alert alert-warning">
             @errorMessage
             <button type="button" class="btn-close float-end" aria-label="Close"
                     @onclick="ClearMessages"></button>
@@ -28,7 +28,7 @@
 
     @if (!string.IsNullOrWhiteSpace(successMessage))
     {
-        <div class="alert alert-success">
+        <div class="alert alert-warning">
             @successMessage
             <button type="button" class="btn-close float-end" aria-label="Close"
                     @onclick="ClearMessages"></button>
@@ -41,7 +41,7 @@
         <div class="col-lg-4">
             <div class="card shadow-sm border-0">
 
-                <div class="card-header @(isEditMode ? "bg-warning" : "bg-primary text-white")">
+                <div class="card-header @(isEditMode ? "bg-warning" : "bg-warning text-dark")">
                     <h5 class="mb-0">@(isEditMode ? "Edit Product #" + currentProduct.Id : "Add New Product")</h5>
                 </div>
 
@@ -87,7 +87,7 @@
                     }
                     else
                     {
-                        <button type="button" class="btn btn-success w-100"
+                        <button type="button" class="btn btn-warning w-100"
                                 disabled="@isBusy" @onclick="AddProduct">
                             + Save Product
                         </button>
@@ -111,7 +111,7 @@
                                @bind:event="oninput"
                                @onkeydown="HandleSearchKey" />
 
-                        <button type="button" class="btn btn-primary"
+                        <button type="button" class="btn btn-warning"
                                 disabled="@isBusy" @onclick="SearchProducts">
                             Search
                         </button>
@@ -141,7 +141,7 @@
                         <div class="text-center p-5">
                             <h5>No products found</h5>
                             <p class="text-muted">Try another search or add a new product.</p>
-                            <button type="button" class="btn btn-outline-primary" @onclick="ResetSearch">
+                            <button type="button" class="btn btn-outline-warning" @onclick="ResetSearch">
                                 Show All Products
                             </button>
                         </div>
@@ -150,7 +150,7 @@
                     {
                         <div class="table-responsive">
                             <table class="table table-hover align-middle mb-0">
-                                <thead class="table-light">
+                                <thead class="table-warning">
                                     <tr>
                                         <th>ID</th>
                                         <th>Product</th>
@@ -170,13 +170,13 @@
                                             <td class="fw-semibold">@item.Name</td>
                                             <td class="text-nowrap">Rs. @item.Price.ToString("N0")</td>
                                             <td>
-                                                <span class="badge bg-light text-dark border">@item.Category</span>
+                                                <span class="badge bg-warning-subtle text-dark border">@item.Category</span>
                                             </td>
                                             <td style="min-width:150px; max-width:220px;">@item.Description</td>
                                             <td>
                                                 @if (item.IsActive)
                                                 {
-                                                    <span class="badge bg-success">Active</span>
+                                                    <span class="badge bg-warning text-dark">Active</span>
                                                 }
                                                 else
                                                 {
@@ -184,13 +184,13 @@
                                                 }
                                             </td>
                                             <td class="text-nowrap">
-                                                <button type="button" class="btn btn-sm btn-warning me-1"
+                                                <button type="button" class="btn btn-sm btn-outline-warning me-1"
                                                         disabled="@isBusy"
                                                         @onclick="() => EditProduct(item)">
                                                     Edit
                                                 </button>
 
-                                                <button type="button" class="btn btn-sm btn-danger"
+                                                <button type="button" class="btn btn-sm btn-outline-danger"
                                                         disabled="@isBusy"
                                                         @onclick="() => DeleteProduct(item)">
                                                     Delete
