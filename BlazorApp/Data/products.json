@@ -1,0 +1,26 @@
+[
+  {
+    "id": "8f7c9e2a-4b15-4d6f-9a31-2c8e5b7f1046",
+    "name": "Laptop",
+    "price": 120000,
+    "category": "Electronics",
+    "description": "Business laptop",
+    "isActive": true
+  },
+  {
+    "id": "2a6e9c3b-7d12-4f45-8c91-5b3e7a1d2048",
+    "name": "Mobile Phone",
+    "price": 75000,
+    "category": "Electronics",
+    "description": "Android smartphone",
+    "isActive": true
+  },
+  {
+    "id": "5c9a2e71-6b34-4d88-91f2-7a3e5b204619",
+    "name": "Office Chair",
+    "price": 25000,
+    "category": "Furniture",
+    "description": "Comfortable office chair",
+    "isActive": true
+  }
+]
